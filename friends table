@@ -1,0 +1,19 @@
+--drop the table if it already exists
+DROP TABLE IF EXISTS friends;
+
+--create the table
+CREATE TABLE friends(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(120) NOT NULL,
+    artist VARCHAR(100) NOT NULL,
+    recordyear INT UNSIGNED NOT NULL,
+    video VARCHAR(255) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+--insert song data into table
+INSERT INTO songs (name, artist, recordyear, video) VALUES ('Woah Nilly','SonReal','2016','<iframe src="https://www.youtube.com/embed/1AOkJctgGGU" frameborder="0" allowfullscreen></iframe>');
+INSERT INTO songs (name, artist, recordyear, video) VALUES ('Mr. Brightside','The Killers','2004','<iframe src="https://www.youtube.com/embed/gGdGFtwCNBE" frameborder="0" allowfullscreen></iframe>');
+INSERT INTO songs (name, artist, recordyear, video) VALUES ('Life Itself','Glass Animals','2016','<iframe src="https://www.youtube.com/embed/yd9p4n5hLEg" frameborder="0" allowfullscreen></iframe>');
+INSERT INTO songs (name, artist, recordyear, video) VALUES ('Thief','Ookay','2016','<iframe src="https://www.youtube.com/embed/knnf2Aw6kMU" frameborder="0" allowfullscreen></iframe>');
+INSERT INTO songs (name, artist, recordyear, video) VALUES ('In The Air Tonight','Phil Collins','1981','<iframe src="https://www.youtube.com/embed/YkADj0TPrJA" frameborder="0" allowfullscreen></iframe>');
