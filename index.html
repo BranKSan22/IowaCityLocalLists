@@ -48,7 +48,7 @@
 </div>
 
     <!-- Lists -->
-<div ng-repeat="list in data">
+<div class="bg-warning text-white" ng-repeat="list in data">
     <h2>{{list.name}}</h2>
 <div class="panel panel-default" ng-repeat="item in list.items | filter:query">
     <div class="panel-heading">
