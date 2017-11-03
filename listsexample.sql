@@ -28,3 +28,15 @@ CREATE TABLE attribute (
     PRIMARY KEY (id)    
 );
 
+INSERT INTO list (id, name) VALUES (1, "Brandy's Favorite Restaurants");
+INSERT INTO list (id, name) VALUES (2, "Sandra's Favorite Restaurants");
+INSERT INTO list (id, name) VALUES (3, "Duncan's Favorite Restaurants");
+
+INSERT INTO item (id, list_id, name, ordernumber) VALUES (11, 1, 'Blue Bird Diner', 1);
+INSERT INTO item (id, list_id, name, ordernumber) VALUES (12, 1, 'Takanami', 2);
+INSERT INTO item (id, list_id, name, ordernumber) VALUES (21, 2, 'The Airliner', 1);
+INSERT INTO item (id, list_id, name, ordernumber) VALUES (22, 2, 'Chipotle', 2);
+INSERT INTO item (id, list_id, name, ordernumber) VALUES (31, 3, 'Pancheros', 1);
+INSERT INTO item (id, list_id, name, ordernumber) VALUES (32, 3, 'Jimmy Johns', 2);
+                                    
+                                 
