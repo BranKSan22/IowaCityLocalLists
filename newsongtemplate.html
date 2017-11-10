@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="lists">
+<head>
+    <title>New Song</title>
+<!-- Minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- AngularJS -->
+<script src=".../angular.min.js"></script>
+<!-- lists module -->
+<script type="text/javascript" src="songs.module.js"></script>
+<!-- data controller -->
+<script type="text/javascript" src="data.lists.controller.js"></script>
+<!-- trust html filter -->
+<script type="text/javascript" src="lists.filter.js"></script>
+</head>
+<body>
+<!-- Content Container -->
+<div class="container" ng-controller="dataControl">
+<!-- Title -->
+<div ng-include ng-init="menuHighlight = 0;" src="'header.html'"></div>
+<!-- Content -->
+<!-- Search bar -->
+<div class="row">
+    <div class="col-xs-12">
+        <p>Search: <input ng-model="query[queryBy]" /></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Enter a new song</h1>
+    </div>    
+</div>
+
+<!-- form to enter new song -->
+<div class="row">
+    <div class="col-xs-12">
+        
+<form name="enterSongForm" novalidate>
+
+<!-- name -->
+<div class="form-group" ng-class="{ 'has-error' : enterSongForm.name.$invalid && enterSongForm.name.$touched, 'has-success' : !enterSongForm.name.$invalid && enterSongForm.name.$touched }">
+    <label>Name of Artist:</label>
+    <input type="text" class="form-control" name="name" ng-model="so.name" required/>
+    <p ng-show="enterSongForm.name.$invalid && enterSongForm.name.$touched" class="help-block">The song's name is required.</p>
+</div>
+
+<!-- song title-->
+<div class="form-group" ng-class="{ 'has-error' : enterSongForm.title.$invalid && enterSongForm.title.$touched, 'has-success' : !enterSongForm.title.$invalid && enterSongForm.title.$touched }">
+    <label>Song Title:</label>
+    <input type="text" class="form-control" name="title" ng-model="so.title" ng-minlength="2" required/>
+    <p ng-show="enterSongForm.title.$invalid && enterSongForm.title.$touched" class="help-block">The song's title must be at least two characters long.</p>
+</div>
+
+<!-- release year -->
+<div class="form-group" ng-class="{ 'has-error' : enterSongForm.reyear.$invalid && enterSongForm.reyear.$touched, 'has-success' : !enterSongForm.reyear.$invalid }">
+    <label>Release Year:</label>
+    <input type="number" class="form-control" name="reyear" ng-model="so.reyear" ng-pattern="/^(18[5-9]\d|19\d\d|200\d|201[0-7])$/" required/>
+    <p ng-show="enterSongForm.reyear.$invalid && enterSongForm.reyear.$touched" class="help-block">Please enter a release year between 1850 and 2017.</p>
+</div>
+
+<!-- video -->
+<div class="form-group"  ng-class="{ 'has-error' : enterSongForm.video.$invalid && enterSongForm.video.$touched, 'has-success' : !enterSongForm.video.$invalid && enterSongForm.video.$touched }">
+    <label>Video:</label>
+    <input type="text" class="form-control" name="video" ng-model="so.video" required/>
+    <p ng-show="enterSongForm.video.$invalid && enterSongForm.video.$touched" class="help-block">Please enter a HTML for an embedded video.</p>
+</div>
+
+
+<button class="btn btn-default" ng-click="saveSong(so)" ng-disabled="enterSongForm.$invalid">Save</button>
+</form>
+    </div>
+</div>
+</div>
+<!-- Footer -->
+<div ng-include src="'footer.html'"></div>
+</div>
+</body>
+</html>
